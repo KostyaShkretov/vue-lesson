@@ -5,7 +5,7 @@ import PresentView from "@/views/PresentView.vue";
 import DomenView from "@/views/DomenView.vue";
 import GameView from "@/views/GameView.vue";
 
-const apiKey = "AIzaSyCY77h-uD6X4tYcBUe-j6MKJoh1FW6tG_8";
+const apiKey = " ";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
