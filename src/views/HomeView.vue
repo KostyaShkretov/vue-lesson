@@ -35,6 +35,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: center; 
 }
  
 </style>
