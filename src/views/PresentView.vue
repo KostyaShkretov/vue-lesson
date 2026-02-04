@@ -7,7 +7,7 @@
 
     <div v-if="currentStep < questions.length">
       <div class="present__button">
-        <label>{{ questions[currentStep].label }}</label>
+        <label>{{ questions[currentStep].label }}</label> 
         <input
           class="input"
           v-if="
@@ -30,17 +30,13 @@
           >
             {{ option }}
           </option>
-        </select>
-        <button @click="nextStep" 
-        class="btn btn--modif">
-        далее</button>
+        </select> 
+        <button v-if="currentStep > 0" @click="backStep" class="btn btn--back"> ← </button>
+        <button @click="nextStep" class="btn btn--modif">далее</button>
       </div>
     </div>
     <div v-else>
-      <button 
-      class="btn" 
-      @click="sendForm" 
-      :disabled="isLoading">
+      <button class="btn" @click="sendForm" :disabled="isLoading">
         Отправить
       </button>
     </div>
@@ -76,6 +72,11 @@ export default {
     };
   },
   methods: {
+    backStep() {
+      if (this.currentStep > 0) {
+        this.currentStep--;
+      }
+    },
     nextStep() {
       if (
         this.answers[this.currentStep] === "" ||
@@ -123,11 +124,11 @@ export default {
   width: 260px;
   padding: 8px 12px;
   outline: none;
-  margin-inline: 10px;
+  margin-inline: 10px;  
 }
 .present__button {
   position: relative;
-} 
+}
 .btn {
   width: 100px;
   padding: 8px 0;
@@ -150,6 +151,15 @@ export default {
   background-color: #6e38f7;
   color: white;
 }
+.btn--back {  
+  position: absolute;
+  height: 100%;
+  right: 100px;
+  width: 20px; 
+  font-size: 16px;
+  text-align: center;
+  padding: 0;
+}
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -159,5 +169,6 @@ export default {
   padding: 8px 12px;
   outline: none;
   margin-inline: 10px;
+  
 }
 </style>
