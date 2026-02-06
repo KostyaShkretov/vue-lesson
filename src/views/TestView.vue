@@ -19,7 +19,7 @@
             @click="btnAswers(i)"
           >
             {{ i }}
-          </button> 
+          </button>
         </div>
         {{ result }}
       </div>
@@ -91,7 +91,10 @@ export default {
   computed: {
     prompt() {
       const person = this.questions
-        .map((person, i) => `Вопрос ${i + 1}: ${person}\nОтвет: ${this.countAnswers[i]}`)
+        .map(
+          (person, i) =>
+            `Вопрос ${i + 1}: ${person}\nОтвет: ${this.countAnswers[i]}`
+        )
         .join("\n\n");
       return `Ты психолог. На основе ответов пользователя определи тип личности. где 1 — совсем не
         согласен / не нравится, 5 — полностью согласен / очень нравится. Данные  ${person} .Дай краткий психологический портрет.`;
