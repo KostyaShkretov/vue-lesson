@@ -6,7 +6,7 @@ import DomenView from "@/views/DomenView.vue";
 import GameView from "@/views/GameView.vue";
 import TestView from "@/views/TestView.vue";
 
-const apiKey = "AIzaSyBuZIRbLqApB34zapvGyjZpLbYNqLucrpM";
+const apiKey = "";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
