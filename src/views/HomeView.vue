@@ -6,14 +6,12 @@
       <li><router-link :to="{ name: 'Present' }"> Present</router-link></li>
       <li><router-link :to="{ name: 'Domen' }"> Domen</router-link></li> 
       <li><router-link :to="{ name: 'Game' }"> True or False </router-link></li>
+      <li><router-link :to="{ name: 'Test' }"> Personality test </router-link></li>
     </ul> 
   </div>
 </template> 
-<script> 
 
-export default { 
-
-};
+<script>  
 </script>
 
 <style>

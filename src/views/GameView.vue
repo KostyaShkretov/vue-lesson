@@ -101,7 +101,7 @@ export default {
               {
                 parts: [
                   {
-                    text: `Пользователь ответил ${this.checkAnswer} на факт: "${this.result}". Правильно? Ответ "Правда" или "Ложь".`,
+                    text: `Пользователь ответил ${userAnswer} на факт: "${this.result}". Правильно? Ответ "Правда" или "Ложь".`,
                   },
                 ],
               },
@@ -120,9 +120,6 @@ export default {
       if (!this.select) return alert("Введите тему");
 
       this.sendGame();
-    },
-    currentAnswer(userAnswer) {
-      this.checkAnswer = userAnswer;
     },
   },
   computed: {
@@ -175,7 +172,8 @@ export default {
   background-color: #6e38f7;
   color: white;
 }
-.btn:disabled {
+.btn:disabled,
+.btn--modif:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }

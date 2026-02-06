@@ -4,8 +4,10 @@ import EmodjiView from "@/views/EmodjiView.vue";
 import PresentView from "@/views/PresentView.vue";
 import DomenView from "@/views/DomenView.vue";
 import GameView from "@/views/GameView.vue";
+import TestView from "@/views/TestView.vue";
 
-const apiKey = " ";
+const apiKey = "AIzaSyBuZIRbLqApB34zapvGyjZpLbYNqLucrpM";
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -36,6 +38,12 @@ const router = createRouter({
       path: "/game",
       name: "Game",
       component: GameView,
+      props: { apiKey: apiKey },
+    },
+    {
+      path: "/test",
+      name: "Test",
+      component: TestView,
       props: { apiKey: apiKey },
     },
   ],
