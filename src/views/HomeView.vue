@@ -21,6 +21,9 @@ a {
   text-decoration: none;
   color: #6e38f7; 
 }
+a:hover{
+    color: #2b175f;
+}
 ul {
     list-style: none;
 }

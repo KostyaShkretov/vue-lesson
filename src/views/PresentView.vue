@@ -7,7 +7,7 @@
 
     <div v-if="currentStep < questions.length">
       <div class="present__button">
-        <label>{{ questions[currentStep].label }}</label> 
+        <label>{{ questions[currentStep].label }}</label>
         <input
           class="input"
           v-if="
@@ -30,13 +30,34 @@
           >
             {{ option }}
           </option>
-        </select> 
-        <button v-if="currentStep > 0" @click="backStep" class="btn btn--back"> ← </button>
-        <button @click="nextStep" class="btn btn--modif">далее</button>
+        </select>
+        <button 
+        v-if="currentStep > 0" 
+            @click="backStep" 
+            class="btn btn--back"
+            >
+          ←
+        </button>
+        <button 
+        @click="nextStep" 
+        class="btn btn--modif"
+        >далее</button>
       </div>
     </div>
-    <div v-else>
-      <button class="btn" @click="sendForm" :disabled="isLoading">
+    <div v-else class="present__send">
+      <button
+        v-if="currentStep > 0"
+        @click="backStep"
+        class="btn"
+        style="width: 20px"
+      >
+        ←
+      </button>
+      <button 
+      class="btn" 
+      @click="sendForm" 
+      :disabled="isLoading"
+      >
         Отправить
       </button>
     </div>
@@ -97,7 +118,7 @@ export default {
           }
         );
         this.result = response.data.candidates[0].content.parts[0].text;
-      } catch (error) {
+      } catch (error) { 
         alert(error);
       }
       this.isLoading = false;
@@ -106,7 +127,7 @@ export default {
   computed: {
     prompt() {
       const [age, gender, hobby, budget] = this.answers;
-      return `Напиши три подходящих ответа через запятую, которые подходят по параметрам пользователя: Возвраст ${age}, Пол: ${gender}, Хобби: ${hobby}, Бюджет до: ${budget} тенге. `;
+      return `Предложи 3 варианта подарков, перечисли через запятую, которые подходят по параметрам пользователя: Возраст ${age}, Пол: ${gender}, Хобби: ${hobby}, Бюджет до: ${budget} тенге. `;
     },
   },
 };
@@ -124,7 +145,12 @@ export default {
   width: 260px;
   padding: 8px 12px;
   outline: none;
-  margin-inline: 10px;  
+  margin-inline: 10px;
+}
+.present__send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .present__button {
   position: relative;
@@ -151,11 +177,11 @@ export default {
   background-color: #6e38f7;
   color: white;
 }
-.btn--back {  
+.btn--back {
   position: absolute;
   height: 100%;
   right: 100px;
-  width: 20px; 
+  width: 20px;
   font-size: 16px;
   text-align: center;
   padding: 0;
@@ -169,6 +195,5 @@ export default {
   padding: 8px 12px;
   outline: none;
   margin-inline: 10px;
-  
 }
 </style>
